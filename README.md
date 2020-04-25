@@ -1,12 +1,12 @@
-discourse-topic-group-button
+discourse-topic-curation
 =======================
 
-Adds a custom button at the bottom of a topic, visible only to staff or members of a specific group.
+Adds custom button in the topic editor of the discourse platform, visible only to staff or admin users or logged in users.
 
 Configuration
 =====
 
-From Admin > Site Settings > Plugin, modify `topic_group_button_url`, `topic_group_button_title`, `topic_group_button_label`, `topic_group_button_allowed_group`.
+From Admin > Site Settings > Plugin, modify `topic_curation_title`, `topic_curation_label`, `topic_curation_allowed_group`, `topic_curation_form_title`.
 
 Installation
 ============
@@ -21,7 +21,7 @@ hooks:
         cmd:
           - mkdir -p plugins
           - git clone https://github.com/discourse/docker_manager.git
-          - git clone https://github.com/discourse/discourse-topic-group-button.git
+          - git clone https://github.com/siddhudhangar/discourse-topic-curation.git
 ```
 
 * Rebuild the container
