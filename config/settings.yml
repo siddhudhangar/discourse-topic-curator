@@ -1,16 +1,16 @@
 plugins:
-  topic_group_button_enabled:
+  topic_curation_enabled:
     default: true
     client: true
-  topic_group_button_url:
-    default: "https://www.discourse.org"
-    client: true
-  topic_group_button_title:
+  topic_curation_title:
     default: "Button description here.."
     client: true
-  topic_group_button_label:
-    default: "Click Me"
+  topic_curation_label:
+    default: "Curator"
     client: true
-  topic_group_button_allowed_group:
+  topic_curation_allowed_group:
     default: "trust_level_4"
+    client: true
+  topic_curation_form_title:
+    default: "Curation Form"
     client: true
