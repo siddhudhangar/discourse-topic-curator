@@ -1,4 +1,4 @@
-discourse-topic-curation
+discourse-topic-curator
 =======================
 
 Adds custom button in the topic editor of the discourse platform, visible only to staff or admin users or logged in users.
