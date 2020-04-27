@@ -14,3 +14,7 @@ plugins:
   topic_curation_form_title:
     default: "Curation Form"
     client: true
+  topic_curation_group_names:
+    client: true
+    type: list
+    default: ''
