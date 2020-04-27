@@ -6,6 +6,10 @@
 
 enabled_site_setting :topic_curation_enabled
 
+PLUGIN_NAME ||= "discourse_topic_organizer".freeze
+
+register_asset 'stylesheets/custom_public_button.css'
+
 after_initialize do
   add_to_serializer(:current_user, :can_see_topic_group_button?) do
     return true if scope.is_staff?
