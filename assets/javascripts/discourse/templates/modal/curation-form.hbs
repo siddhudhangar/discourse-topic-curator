@@ -1,11 +1,13 @@
 {{#d-modal-body class="select-tags" title=modal_title}}
   {{#each tag_groups_data.tag_groups as |tag_group|}}
     <h4>{{tag_group.name}}</h4>
-    {{#if selected_group_names}}
-	    {{#each selected_group_names as |group|}}
-			{{tag_group.tag_names}}<br/>
-	  	{{/each}}
-  	{{/if}}
-  {{/each}}
-    
+    {{!--
+	    {{#if selected_group_names}}
+		    {{#each selected_group_names as |group|}}
+				{{tag_group.tag_names}}<br/>
+		  	{{/each}}
+	  	{{/if}}
+  	--}}
+  	{{custom_helper_to_render_tag_groups tag_group selected_group_names=selected_group_names}}
+  {{/each}}    
 {{/d-modal-body}}
