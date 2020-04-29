@@ -11,7 +11,7 @@ export default function(tag_group, selected_group_names) {
     radio_button_html_tags = ""
     for(let i = 0; i < tag_group.tag_names.length; i++ )
     {
-      renderHTML(tag_group.name,true,tag_group.tag_names[i])
+      renderHTML(tag_group.name,true,tag_group.tag_names[i],i)
     }
     return radio_button_html_tags;
   }
@@ -20,19 +20,30 @@ export default function(tag_group, selected_group_names) {
     checkbox_html_tags=""
     for(let i = 0; i < tag_group.tag_names.length; i++ )
     {
-      renderHTML(tag_group.name,false,tag_group.tag_names[i])
+      renderHTML(tag_group.name,false,tag_group.tag_names[i],i)
     }
     return checkbox_html_tags;
   }
 }
 
-function renderHTML(tag_group_name,bool,tag)
+function renderHTML(tag_group_name,bool,tag,i)
 {
     console.log(bool);
     if(bool){
-     radio_button_html_tags = radio_button_html_tags+"<input type='radio' name="+tag_group_name+" id="+tag+" ><label for="+tag+">"+tag+"</label>"
+      if(i==0){
+       radio_button_html_tags = radio_button_html_tags+"<input type='radio' name="+tag_group_name+" id="+tag+" checked><label for="+tag+">"+tag+"</label>"     
+      }
+      else{
+        radio_button_html_tags = radio_button_html_tags+"<input type='radio' name="+tag_group_name+" id="+tag+" ><label for="+tag+">"+tag+"</label>" 
+      }
+
     }
     else{
-     checkbox_html_tags = checkbox_html_tags+"<input type='checkbox' name="+tag_group_name+" id="+tag+" ><label for="+tag+">"+tag+"</label>"
+      if(i==0){
+        checkbox_html_tags = checkbox_html_tags+"<input type='checkbox' name="+tag_group_name+" id="+tag+" checked><label for="+tag+">"+tag+"</label>"
+      }
+      else{
+         checkbox_html_tags = checkbox_html_tags+"<input type='checkbox' name="+tag_group_name+" id="+tag+" ><label for="+tag+">"+tag+"</label>"
+      }
     }
 }
