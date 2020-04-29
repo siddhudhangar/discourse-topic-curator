@@ -1,3 +1,5 @@
 en:
   js:
+    curation_form:
+      submit_button_label: "Submit"
     topic_curation_form_title: "Curation Form"
