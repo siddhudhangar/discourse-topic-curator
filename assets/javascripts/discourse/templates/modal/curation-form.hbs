@@ -1,5 +1,6 @@
 {{#d-modal-body class="select-tags" title=modal_title}}
-  {{#each tag_groups_data.tag_groups as |tag_group|}}
+  {{#each tag_groups_data.tag_groups as |tag_group|}}  
+  <span class="custom-tag-group">
     <h4>{{tag_group.name}}</h4>
     {{!--
 	    {{#if selected_group_names}}
@@ -9,6 +10,8 @@
 	  	{{/if}}
   	--}}
   	{{custom_helper_to_render_tag_groups tag_group selected_group_names=selected_group_names}}
+  	</span>
   {{/each}}
-  {{d-button class="btn btn-primary" action="SelectedGroupsTags" label="curation_form.submit_button_label"}}
+  {{d-button class="btn" action="SelectedGroupsTags" label="curation_form.submit_button_label"}}
+  
 {{/d-modal-body}}
