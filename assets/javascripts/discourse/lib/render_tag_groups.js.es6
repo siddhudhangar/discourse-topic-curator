@@ -31,10 +31,10 @@ function renderHTML(tag_group_name,bool,tag,i)
     console.log(bool);
     if(bool){
       if(i==0){
-       radio_button_html_tags = radio_button_html_tags+"<input type='radio' name="+tag_group_name+" id="+tag+" checked><label for="+tag+">"+tag+"</label>"     
+       radio_button_html_tags = radio_button_html_tags+"<label class='custom-radio'> <input type='radio' name="+tag_group_name+" id="+tag+" checked>"+tag+"</label>"     
       }
       else{
-        radio_button_html_tags = radio_button_html_tags+"<input type='radio' name="+tag_group_name+" id="+tag+" ><label for="+tag+">"+tag+"</label>" 
+        radio_button_html_tags = radio_button_html_tags+"<label class='custom-radio'><input type='radio' name="+tag_group_name+" id="+tag+" >"+tag+"</label>" 
       }
 
     }

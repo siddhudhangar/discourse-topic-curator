@@ -15,6 +15,16 @@
     vertical-align: middle;
     cursor: pointer;
 }
+.custom-radio{
+	float:left;
+	position: relative;
+	display: inline-block;
+    padding-left: 30px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+}
 .custom-tag-group{
 	display: table;
 }
