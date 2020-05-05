@@ -8,9 +8,6 @@ plugins:
   topic_curation_label:
     default: "Curator"
     client: true
-  topic_curation_allowed_group:
-    default: "trust_level_4"
-    client: true
   topic_curation_form_title:
     default: "Curation Form"
     client: true
