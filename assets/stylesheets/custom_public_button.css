@@ -8,9 +8,10 @@
 .custom-checkbox{
 	float:left;
 	position: relative;
+	width:220px;
 	display: inline-block;
-    padding-left: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 1em;
+    vertical-align:middle;
     font-weight: 400;
     vertical-align: middle;
     cursor: pointer;
@@ -19,10 +20,10 @@
 	float:left;
 	position: relative;
 	display: inline-block;
-    padding-left: 30px;
-    margin-bottom: 15px;
+	width:220px;
+    margin-bottom: 1em;
+    vertical-align:middle;
     font-weight: 400;
-    vertical-align: middle;
     cursor: pointer;
 }
 .custom-tag-group{
