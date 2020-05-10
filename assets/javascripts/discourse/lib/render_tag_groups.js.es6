@@ -31,19 +31,19 @@ function renderHTML(tag_group_name,bool,tag,i)
     console.log(bool);
     if(bool){
       if(i==0){
-       radio_button_html_tags = radio_button_html_tags+"<label class='custom-radio'> <input type='radio' name="+tag_group_name+" id="+tag+" checked>"+tag+"</label>"     
+       radio_button_html_tags = radio_button_html_tags+"<label class='custom-radio'> <input class='selected-tags-in-curation-form' type='radio' name="+tag_group_name+" id="+tag+" value="+tag+" checked>"+tag+"</label>"     
       }
       else{
-        radio_button_html_tags = radio_button_html_tags+"<label class='custom-radio'><input type='radio' name="+tag_group_name+" id="+tag+" >"+tag+"</label>" 
+        radio_button_html_tags = radio_button_html_tags+"<label class='custom-radio'><input class='selected-tags-in-curation-form' type='radio' name="+tag_group_name+" id="+tag+" value="+tag+" >"+tag+"</label>" 
       }
 
     }
     else{
       if(i==0){
-        checkbox_html_tags = checkbox_html_tags+"<label class='custom-checkbox'> <input type='checkbox' name="+tag_group_name+" id="+tag+" checked>"+tag+"</label>"
+        checkbox_html_tags = checkbox_html_tags+"<label class='custom-checkbox'> <input class='selected-tags-in-curation-form' type='checkbox' name="+tag_group_name+" id="+tag+" value="+tag+" checked>"+tag+"</label>"
       }
       else{
-         checkbox_html_tags = checkbox_html_tags+"<label class='custom-checkbox'><input type='checkbox' name="+tag_group_name+" id="+tag+" >"+tag+"</label>"
+         checkbox_html_tags = checkbox_html_tags+"<label class='custom-checkbox'><input class='selected-tags-in-curation-form' type='checkbox' name="+tag_group_name+" id="+tag+" value="+tag+" >"+tag+"</label>"
       }
     }
 }
