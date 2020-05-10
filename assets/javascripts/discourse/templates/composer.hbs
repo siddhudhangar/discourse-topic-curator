@@ -84,6 +84,8 @@
                     {{popup-input-tip validation=categoryValidation}}
                   </div>
                 {{/if}}
+                {{plugin-outlet name="composer-fields" args=(hash model=model)}}
+                {{plugin-outlet name="composer-tag-fields" args=(hash model=model)}}
                 {{#unless siteSettings.topic_curation_enabled}}
                   {{#if canEditTags}}
                     {{mini-tag-chooser
@@ -102,7 +104,7 @@
               </div>
             {{/if}}
 
-            {{plugin-outlet name="composer-fields" args=(hash model=model)}}
+            
           {{/unless}}
 
         </div>

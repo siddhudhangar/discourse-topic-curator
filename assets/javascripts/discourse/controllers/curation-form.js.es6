@@ -11,9 +11,13 @@ export default Ember.Controller.extend(ModalFunctionality, {
 
       var items=document.getElementsByClassName('selected-tags-in-curation-form');
     	var tags_array = [];
+      $("#show_selected_tags").empty();
 		  for(var i=0; i<items.length; i++){
 			if (items[i].checked==true){
+
+        $("#show_selected_tags").append(items[i].value+" ");
 				tags_array.push(items[i].value);
+
 			}
 		  }
       if (typeof(Storage) !== "undefined") {
@@ -23,6 +27,7 @@ export default Ember.Controller.extend(ModalFunctionality, {
       } else {
         alert("sorry! Web Storage is not supported by browser")
       }
+
 
   }
 
