@@ -1,5 +1,5 @@
 import { withPluginApi } from 'discourse/lib/plugin-api';
-
+import Composer from "discourse/models/composer";
 
 
 function initializePlugin(api) {
@@ -12,11 +12,9 @@ export default {
   name: 'composer-editor',
   initialize() {
      withPluginApi('0.1', api => {       
-       //api.onPageChange(() => console.log('user navigated!'));
-
+       api.onPageChange(() => console.log('user navigated!')),
 
        initializePlugin(api),
-
 
 	    api.modifyClass('controller:composer', {
 	      actions: {
@@ -188,7 +186,56 @@ export default {
     return promise;
 	        }
 	      }
-	    });
+	    }); //composer controller ended here
+
+      api.modifyClass('controller:topic', {
+      actions: {
+        editPost(post) {
+          //alert("edit post method");
+          console.log("edit post method");
+
+      if (!this.currentUser) {
+        return bootbox.alert(I18n.t("post.controls.edit_anonymous"));
+      } else if (!post.can_edit) {
+        return false;
+      }
+
+      const composer = this.composer;
+      let topic = this.model;
+      //console.log(topic);
+      //console.log(composer);
+
+      const composerModel = composer.get("model");
+      let editingFirst =
+        composerModel &&
+        (post.get("firstPost") || composerModel.get("editingFirstPost"));
+
+      let editingSharedDraft = false;
+      let draftsCategoryId = this.get("site.shared_drafts_category_id");
+      if (draftsCategoryId && draftsCategoryId === topic.get("category.id")) {
+        editingSharedDraft = post.get("firstPost");
+      }
+
+      const opts = {
+        post,
+        action: editingSharedDraft ? Composer.EDIT_SHARED_DRAFT : Composer.EDIT,
+        draftKey: post.get("topic.draft_key"),
+        draftSequence: post.get("topic.draft_sequence")
+      };
+
+      if (editingSharedDraft) {
+        opts.destinationCategoryId = topic.get("destination_category_id");
+      }
+
+      // Cancel and reopen the composer for the first post
+      if (editingFirst) {
+        composer.cancelComposer().then(() => composer.open(opts));
+      } else {
+        composer.open(opts);
+      }
+        }
+      }
+      }); // topic controller ended here
      });
 
   }
