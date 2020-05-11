@@ -1,6 +1,7 @@
 .topic-group-button{
-	margin: 7px 0 7px 0;
+	margin: 6px 0 6px 0;
 	background: darkgrey;
+	width: 300px;
 }
 .modal-middle-container{
 	display: block !important;
