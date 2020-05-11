@@ -2,4 +2,5 @@ en:
   js:
     curation_form:
       submit_button_label: "Submit"
+      cancel_button_label: "Cancel"
     topic_curation_form_title: "Curation Form"
