@@ -6,6 +6,7 @@ export default Ember.Controller.extend(ModalFunctionality, {
   title: Ember.computed.oneWay('model.title'),
   tag_groups_data: Ember.computed.oneWay('model.tag_groups_data'),
   selected_group_names: Discourse.SiteSettings.topic_curation_group_names.split('|'),
+  show_selected_tags: Ember.computed.oneWay('model.show_selected_tags'),
   actions: {
     SelectedGroupsTags() {
 
