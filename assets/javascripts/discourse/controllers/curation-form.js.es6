@@ -8,8 +8,9 @@ export default Ember.Controller.extend(ModalFunctionality, {
   selected_group_names: Discourse.SiteSettings.topic_curation_group_names.split('|'),
   show_selected_tags: Ember.computed.oneWay('model.show_selected_tags'),
   actions: {
-    SelectedGroupsTags() {
+    SelectedGroupsTags(tags) {
       console.log("SelectedGroupsTags");
+      console.log(tags);
       var items=document.getElementsByClassName('selected-tags-in-curation-form');
     	var tags_array = [];
       $("#show_selected_tags").empty();
@@ -22,7 +23,10 @@ export default Ember.Controller.extend(ModalFunctionality, {
 
 			}
 		  }
-      var uniqueTags = tags_array.filter((v, i, a) => a.indexOf(v) === i); 
+      if (tags && tags.length > 0){
+        tags_array = tags_array.concat(tags);
+      }
+      var uniqueTags = tags_array.filter((v, i, a) => a.indexOf(v) === i);
       console.log(uniqueTags)
       for(var j=0; j<uniqueTags.length; j++){
         $("#show_selected_tags").append(uniqueTags[j]+",");
