@@ -1,6 +1,6 @@
 import { withPluginApi } from 'discourse/lib/plugin-api';
 import Composer from "discourse/models/composer";
-
+import DiscourseURL from 'discourse/lib/url';
 
 function initializePlugin(api) {
   // do stuff with plugin API!
