@@ -30,3 +30,7 @@
 .custom-tag-group{
 	display: table;
 }
+.modal-button{
+	margin-top: 2px;
+	margin-bottom: 10px;
+}
