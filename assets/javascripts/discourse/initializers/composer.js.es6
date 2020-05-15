@@ -12,7 +12,10 @@ export default {
   name: 'composer-editor',
   initialize() {
      withPluginApi('0.1', api => {       
-       //api.onPageChange(() => console.log('user navigated!')),
+       api.onPageChange((url, title) => {
+        //console.log('the page changed');
+        localStorage.setItem("tags", "");
+      }),
 
        initializePlugin(api),
 
