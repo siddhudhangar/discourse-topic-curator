@@ -29,6 +29,9 @@ export default {
       show_selected_tags = document.getElementById("show_selected_tags").innerText;
 
       ajax_call = true;
+      if(show_selected_tags){
+        show_selected_tags = show_selected_tags.substring(0,show_selected_tags.length - 1)
+      }
       if (ajax_call)
       {
       if (show_selected_tags.length == 0)
@@ -38,6 +41,7 @@ export default {
       else
       {
         show_selected_tags =  show_selected_tags.split(',')
+        console.log(show_selected_tags);
         other_keyword_tags = show_selected_tags;
       }
       ajax(`/tag_groups.json`).then(result => {
@@ -46,7 +50,7 @@ export default {
           {
            other_keyword_tags = other_keyword_tags.filter(x => !result.tag_groups[k].tag_names.includes(x))
           }
-          //console.log(temp_storage_for_tag_groups1[k]);
+          //console.log(other_keyword_tags);
 
           if (  group_names.indexOf(result.tag_groups[k].name) != -1)
           {
