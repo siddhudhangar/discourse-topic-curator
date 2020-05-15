@@ -29,7 +29,7 @@ export default {
       show_selected_tags = document.getElementById("show_selected_tags").innerText;
 
       ajax_call = true;
-      if(show_selected_tags){
+      if(show_selected_tags && show_selected_tags.charAt(show_selected_tags.length - 1) == "," ){
         show_selected_tags = show_selected_tags.substring(0,show_selected_tags.length - 1)
       }
       if (ajax_call)
