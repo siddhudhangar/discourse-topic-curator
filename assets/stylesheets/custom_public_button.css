@@ -9,7 +9,7 @@
 .custom-checkbox{
 	float:left;
 	position: relative;
-	width:220px;
+	width:210px;
 	display: inline-block;
     margin-bottom: 1em;
     vertical-align:middle;
@@ -21,7 +21,7 @@
 	float:left;
 	position: relative;
 	display: inline-block;
-	width:220px;
+	width:210px;
     margin-bottom: 1em;
     vertical-align:middle;
     font-weight: 400;
@@ -101,4 +101,5 @@ input[type=submit] {
     padding-right: 4px;
     padding-bottom: 0.2px;
     padding-left: 4px;
+    margin:2px;
  }   
