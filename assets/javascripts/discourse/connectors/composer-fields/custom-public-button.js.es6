@@ -41,6 +41,10 @@ export default {
       else
       {
         show_selected_tags =  show_selected_tags.split(',')
+        for(var m=0;m < show_selected_tags.length; m++ ){
+          temp.push(show_selected_tags[m].trim());
+        }
+        show_selected_tags = temp;
         console.log(show_selected_tags);
         other_keyword_tags = show_selected_tags;
       }
