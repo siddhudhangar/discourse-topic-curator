@@ -14,6 +14,7 @@ export default {
     var tag_groups = []
     var temp_storage_for_tag_groups1 = []
     var temp_storage_for_tag_groups2 = []
+    var temp = []
 
     function removeAllElements(array, elem) {
       var index = array.indexOf(elem);
@@ -49,7 +50,18 @@ export default {
 
           if (  group_names.indexOf(result.tag_groups[k].name) != -1)
           {
-            temp_storage_for_tag_groups2.push(result.tag_groups[k]);
+            if(show_selected_tags!=0){
+              temp = result.tag_groups[k];
+
+              temp["tags"] = show_selected_tags.filter(x => result.tag_groups[k].tag_names.includes(x))
+              console.log(temp);
+              temp_storage_for_tag_groups2.push(temp);
+
+              temp = []
+            }
+            else{
+              temp_storage_for_tag_groups2.push(result.tag_groups[k]);
+            }
           }
           else
           {

@@ -5,23 +5,23 @@ import DiscourseURL from 'discourse/lib/url';
 function initializePlugin(api) {
   // do stuff with plugin API!
    localStorage.setItem("tags", "")
-   console.log("initializePlugin method called");
+   //console.log("initializePlugin method called");
 }
 
 export default {
   name: 'composer-editor',
   initialize() {
      withPluginApi('0.1', api => {       
-       api.onPageChange(() => console.log('user navigated!')),
+       //api.onPageChange(() => console.log('user navigated!')),
 
        initializePlugin(api),
 
 	    api.modifyClass('controller:composer', {
 	      actions: {
 	       save(force) {
-	       		console.log("localStorage.tags");
-	       		console.log(localStorage.tags);
-	       		console.log("save method called");
+	       		//console.log("localStorage.tags");
+	       		//console.log(localStorage.tags);
+	       		//console.log("save method called");
 
 	       		    if (this.disableSubmit) return;
 
