@@ -31,7 +31,7 @@ export default Ember.Controller.extend(ModalFunctionality, {
       var uniqueTags = tags_array.filter((v, i, a) => a.indexOf(v) === i);
 
       for(var j=0; j<uniqueTags.length; j++){
-        $("#show_selected_tags").append(uniqueTags[j]+",");
+        $("#show_selected_tags").append('<span class="tag-class-selected">' + uniqueTags[j] + '<span class="comma-color">,</span></span>' );
       }
       if (typeof(Storage) !== "undefined") {
         // Code for localStorage/sessionStorage.
