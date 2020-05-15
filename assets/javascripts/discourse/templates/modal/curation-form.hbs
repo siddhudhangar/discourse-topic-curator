@@ -15,9 +15,9 @@
 
     {{!--{{custom_helper_to_render_textboxes tag_group}}--}}
     
-      {{input id=tag_group.name type='text' value=tag_group.tags  class="selected-tags-in-curation-form" name=tag_group.name placeholder="Search for tags" input=(action "SearchText" tag_group) }}
+      {{input id=(concat "tag_group_" tag_group.id) type='text' value=tag_group.tags  class="selected-tags-in-curation-form" name=tag_group.name placeholder="Search for tags" input=(action "SearchText" tag_group) }}
       {{!--<input id={{tag_group.name}} type="text" value=input_text placeholder={{tag_group.name}} onchange={{action "SearchText"}}>--}}
-    
+
     </span>
   {{/each}}
 

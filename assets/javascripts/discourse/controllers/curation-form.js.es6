@@ -48,16 +48,15 @@ export default Ember.Controller.extend(ModalFunctionality, {
       var search_text=""
       var arr = []
       arr = tag_group.tag_names;
-      search_text = document.getElementById(tag_group.name);
-      //console.log(search_text.value);
+      search_text = document.getElementById("tag_group_"+tag_group.id);
       var currentFocus;
 
+      currentFocus = -1;
       search_text.addEventListener("input", function(e) {
       var a, b, i, val = this.value;
       /*close any already open lists of autocompleted values*/
       closeAllLists();
       if (!val) { return false;}
-      currentFocus = -1;
       /*create a DIV element that will contain the items (values):*/
       a = document.createElement("DIV");
       a.setAttribute("id", this.id + "autocomplete-list");
@@ -71,12 +70,17 @@ export default Ember.Controller.extend(ModalFunctionality, {
           console.log(search_text.value);
         }
         /*check if the item starts with the same letters as the text field value:*/
-        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        //if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+        if (val && arr && arr[i].search(new RegExp(val, "i")) != -1) {
+
+          var pos = arr[i].toUpperCase().indexOf(val.toUpperCase());
+
           /*create a DIV element for each matching element:*/
           b = document.createElement("DIV");
           /*make the matching letters bold:*/
-          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
+          b.innerHTML = arr[i].substr(0, pos);
+          b.innerHTML += "<strong>" + arr[i].substr(pos, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(pos + val.length);
           /*insert a input field that will hold the current array item's value:*/
           b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
           /*execute a function when someone clicks on the item value (DIV element):*/
@@ -97,6 +101,7 @@ export default Ember.Controller.extend(ModalFunctionality, {
     search_text.addEventListener("keydown", function(e) {
       var x = document.getElementById(this.id + "autocomplete-list");
       if (x) x = x.getElementsByTagName("div");
+      
       if (e.keyCode == 40) {
         /*If the arrow DOWN key is pressed,
         increase the currentFocus variable:*/
