@@ -15,3 +15,7 @@ plugins:
     client: true
     type: list
     default: ''
+  topic_curation_group_names_to_render_textboxes:
+    client: true
+    type: list
+    default: ''

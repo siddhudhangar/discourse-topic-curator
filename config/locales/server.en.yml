@@ -4,4 +4,5 @@ en:
     topic_curation_title: "Button title"
     topic_curation_label: "Button label"
     topic_curation_form_title: "Form title"
-    topic_curation_group_names: "Enter the name of the groups to select the tags through checkboxes in the curation form "
+    topic_curation_group_names: "Enter the name of the groups to select the tags through checkboxes in the curation form."
+    topic_curation_group_names_to_render_textboxes: "Enter the name of the groups to select the tags through textbox in the curation form."

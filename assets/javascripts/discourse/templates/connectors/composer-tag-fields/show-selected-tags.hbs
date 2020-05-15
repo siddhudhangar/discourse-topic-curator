@@ -1,6 +1,8 @@
 <div id="show_selected_tags">
 {{#if model.tags}}
-	{{model.tags}}
+	{{#each model.tags as |tag|}}
+		<span class="tag-class-selected">{{tag}}<i class="comma-color">,</i></span>
+	{{/each}}
 {{else}}
 
 {{/if}}
