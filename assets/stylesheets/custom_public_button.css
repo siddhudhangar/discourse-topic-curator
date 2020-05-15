@@ -74,8 +74,8 @@ input[type=submit] {
 }
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-  background-color: DodgerBlue !important;
-  color: #ffffff;
+  background-color: #d1f0ff !important;
+  color: #646464;
 }
 * { box-sizing: border-box; }
 
