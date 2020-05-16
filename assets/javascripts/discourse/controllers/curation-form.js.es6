@@ -24,6 +24,13 @@ export default Ember.Controller.extend(ModalFunctionality, {
 				tags_array.push(items[i].value);
         }
 			}
+      else if(items[i].innerText){
+        var splited_text = items[i].innerText.split(',')
+        items[i].innerText.split(',')
+        for(var m=0;m < splited_text.length-1; m++ ){
+          tags_array.push(splited_text[m]);
+        }
+      }
 		  }
       if (tags && tags.length > 0){
         tags_array = tags_array.concat(tags);
@@ -51,6 +58,7 @@ export default Ember.Controller.extend(ModalFunctionality, {
       arr = tag_group.tag_names;
       search_text = document.getElementById("tag_group_"+tag_group.id);
       var currentFocus;
+      var selected_tags = ""
 
       currentFocus = -1;
       search_text.addEventListener("input", function(e) {
@@ -84,10 +92,23 @@ export default Ember.Controller.extend(ModalFunctionality, {
           b.innerHTML += arr[i].substr(pos + val.length);
           /*insert a input field that will hold the current array item's value:*/
           b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+
+
           /*execute a function when someone clicks on the item value (DIV element):*/
               b.addEventListener("click", function(e) {
               /*insert the value for the autocomplete text field:*/
-              search_text.value = this.getElementsByTagName("input")[0].value;
+              //search_text.value = this.getElementsByTagName("input")[0].value;
+              
+              selected_tags = document.getElementById("selected_tags_from_tag_group_"+tag_group.id);
+
+              if (selected_tags.innerText.length == 0 ){
+                selected_tags.innerHTML += '<span class="tag-class-selected">'+this.getElementsByTagName("input")[0].value+'<span class="comma-color">,</span></span>';
+              }
+              else if (selected_tags.innerText && selected_tags.innerText.search(this.getElementsByTagName("input")[0].value) == -1)
+              {
+                selected_tags.innerHTML += '<span class="tag-class-selected">'+this.getElementsByTagName("input")[0].value+'<span class="comma-color">,</span></span>';
+              }
+              
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();

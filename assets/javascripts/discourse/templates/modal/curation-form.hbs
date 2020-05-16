@@ -15,10 +15,16 @@
 
     {{!--{{custom_helper_to_render_textboxes tag_group}}--}}
     
-      {{input id=(concat "tag_group_" tag_group.id) type='text' value=tag_group.tags  class="selected-tags-in-curation-form" name=tag_group.name placeholder="Search for tags" input=(action "SearchText" tag_group) }}
+      {{input id=(concat "tag_group_" tag_group.id) type='text' value=""  name=tag_group.name placeholder="Search for tags" input=(action "SearchText" tag_group) }}
       {{!--<input id={{tag_group.name}} type="text" value=input_text placeholder={{tag_group.name}} onchange={{action "SearchText"}}>--}}
-
-    </span>
+  </span>
+    <div id={{concat "selected_tags_from_tag_group_" tag_group.id}} class="selected-tags-in-curation-form">
+      {{#if tag_group.tags}}
+        {{#each tag_group.tags as |each_tag|}}
+          <span class="tag-class-selected">{{each_tag}}<span class="comma-color">,</span></span>
+        {{/each}}
+      {{/if}}
+    </div>
   {{/each}}
 
   <h4>Keywords</h4>
