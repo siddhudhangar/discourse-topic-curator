@@ -21,7 +21,7 @@
     <div id={{concat "selected_tags_from_tag_group_" tag_group.id}} class="selected-tags-in-curation-form">
       {{#if tag_group.tags}}
         {{#each tag_group.tags as |each_tag|}}
-          <span class="tag-class-selected">{{each_tag}}<span class="comma-color">,</span></span>
+          <span id={{concat tag_group.id each_tag}} onClick={{action "removeTags"}} class="tag-class-selected">{{each_tag}}<span class="comma-color">,</span></span>
         {{/each}}
       {{/if}}
     </div>

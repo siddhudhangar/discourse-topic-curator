@@ -51,6 +51,9 @@ export default Ember.Controller.extend(ModalFunctionality, {
 
 
     },
+    removeTags(){
+      console.log("removeTags");
+    },
     SearchText(tag_group){
       //console.log(tag_group.name);
       var search_text=""
@@ -108,7 +111,14 @@ export default Ember.Controller.extend(ModalFunctionality, {
               {
                 selected_tags.innerHTML += '<span class="tag-class-selected">'+this.getElementsByTagName("input")[0].value+'<span class="comma-color">,</span></span>';
               }
-              
+              console.log(document.getElementsByClassName("tag-class-selected"));
+              var tag_class_selected = document.getElementsByClassName("tag-class-selected");
+              for(var n=0;n < tag_class_selected.length;n++){
+                tag_class_selected[n].addEventListener("click",function(){
+                this.parentNode.removeChild(this);
+              });              
+              }
+
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/
               closeAllLists();
@@ -178,6 +188,7 @@ document.addEventListener("click", function (e) {
 
       }
 
-  }
+  },
+
 
 });
