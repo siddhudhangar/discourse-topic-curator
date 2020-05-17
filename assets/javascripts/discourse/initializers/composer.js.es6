@@ -34,8 +34,8 @@ export default {
     }
 
     const composer = this.model;
-    console.log("composer");
-    console.log(composer);
+    //console.log("composer");
+    //console.log(composer);
 
     if (composer.cantSubmitPost) {
       this.set("lastValidatedAt", Date.now());
@@ -43,7 +43,7 @@ export default {
     }
 
     composer.set("disableDrafts", true);
-	console.log(localStorage.tags.split(","));
+	//console.log(localStorage.tags.split(","));
 	composer.set("tags", localStorage.tags.split(","));
 	//composer.setProperties({ tags: localStorage.tags.split(",") });
 
@@ -195,7 +195,7 @@ export default {
       actions: {
         editPost(post) {
           //alert("edit post method");
-          console.log("edit post method");
+          //console.log("edit post method");
 
       if (!this.currentUser) {
         return bootbox.alert(I18n.t("post.controls.edit_anonymous"));
