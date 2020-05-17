@@ -7,7 +7,7 @@ export default {
   actions: {
     clickButton() {
     var group_names = Discourse.SiteSettings.topic_curation_group_names_to_render_textboxes.split('|');
-    console.log(group_names);
+    //console.log(group_names);
     var show_selected_tags;
     var ajax_call = false;
     var other_keyword_tags=[];
@@ -45,7 +45,7 @@ export default {
           temp.push(show_selected_tags[m].trim());
         }
         show_selected_tags = temp;
-        console.log(show_selected_tags);
+        //console.log(show_selected_tags);
         other_keyword_tags = show_selected_tags;
       }
       ajax(`/tag_groups.json`).then(result => {
@@ -62,7 +62,7 @@ export default {
               temp = result.tag_groups[k];
 
               temp["tags"] = show_selected_tags.filter(x => result.tag_groups[k].tag_names.includes(x))
-              console.log(temp);
+              //console.log(temp);
               temp_storage_for_tag_groups2.push(temp);
 
               temp = []

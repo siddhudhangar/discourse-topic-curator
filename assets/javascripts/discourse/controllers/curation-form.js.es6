@@ -8,6 +8,7 @@ export default Ember.Controller.extend(ModalFunctionality, {
   selected_group_names: Discourse.SiteSettings.topic_curation_group_names.split('|'),
   show_selected_tags: Ember.computed.oneWay('model.show_selected_tags'),
   tag_groups_to_render_textboxes: Ember.computed.oneWay('model.tag_groups_to_render_textboxes'),
+
   actions: {
     SelectedGroupsTags(tags) {
       //console.log("SelectedGroupsTags");
@@ -52,7 +53,15 @@ export default Ember.Controller.extend(ModalFunctionality, {
 
     },
     removeTags(){
-      console.log("removeTags");
+      //console.log("removeTags");
+      //console.log(this);
+      var tag_class_selected = document.getElementsByClassName("tag-class-selected");
+      //this.parentNode.removeChild(this);
+      for(var n=0;n < tag_class_selected.length;n++){
+        tag_class_selected[n].addEventListener("click",function(){
+        this.parentNode.removeChild(this);
+      });
+      }
     },
     SearchText(tag_group){
       //console.log(tag_group.name);
@@ -78,9 +87,6 @@ export default Ember.Controller.extend(ModalFunctionality, {
       /*for each item in the array...*/
       for (i = 0; i < arr.length; i++) {
 
-        if(search_text.value){
-          console.log(search_text.value);
-        }
         /*check if the item starts with the same letters as the text field value:*/
         //if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
         if (val && arr && arr[i].search(new RegExp(val, "i")) != -1) {
@@ -111,7 +117,7 @@ export default Ember.Controller.extend(ModalFunctionality, {
               {
                 selected_tags.innerHTML += '<span class="tag-class-selected">'+this.getElementsByTagName("input")[0].value+'<span class="comma-color">,</span></span>';
               }
-              console.log(document.getElementsByClassName("tag-class-selected"));
+              //console.log(document.getElementsByClassName("tag-class-selected"));
               var tag_class_selected = document.getElementsByClassName("tag-class-selected");
               for(var n=0;n < tag_class_selected.length;n++){
                 tag_class_selected[n].addEventListener("click",function(){
