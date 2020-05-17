@@ -50,7 +50,7 @@ export default Ember.Controller.extend(ModalFunctionality, {
         alert("sorry! Web Storage is not supported by browser")
       }
 
-
+      this.send("closeModal");
     },
     removeTags(){
       //console.log("removeTags");
