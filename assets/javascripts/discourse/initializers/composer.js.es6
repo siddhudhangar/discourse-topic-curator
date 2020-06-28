@@ -43,9 +43,21 @@ export default {
     }
 
     composer.set("disableDrafts", true);
-	//console.log(localStorage.tags.split(","));
-	composer.set("tags", localStorage.tags.split(","));
-	//composer.setProperties({ tags: localStorage.tags.split(",") });
+
+    var selected_tags=document.getElementById('show_selected_tags');
+    var tags_array = [];
+    //console.log(selected_tags.innerText);
+
+      if (typeof(Storage) !== "undefined" && selected_tags !== "undefined") {
+        // Code for localStorage/sessionStorage.
+        //console.log(selected_tags.innerText.split(","));
+        localStorage.setItem("tags", selected_tags.innerText.split(","));
+        //console.log(localStorage.tags);
+      } else {
+        alert("sorry! Web Storage is not supported by browser")
+      }
+
+      composer.set("tags", localStorage.tags.split(","));
 
     // for now handle a very narrow use case
     // if we are replying to a topic AND not on the topic pop the window up
@@ -206,6 +218,18 @@ export default {
       const composer = this.composer;
       let topic = this.model;
       //console.log(topic);
+
+      if (typeof(Storage) !== "undefined") {
+        if (topic.tags.length > 0){
+          // Code for localStorage/sessionStorage.
+          localStorage.setItem("tags", topic.tags);
+          //console.log(localStorage.tags);
+          }
+
+      } else {
+        alert("sorry! Web Storage is not supported by browser")
+      }
+
       //console.log(composer);
 
       const composerModel = composer.get("model");
