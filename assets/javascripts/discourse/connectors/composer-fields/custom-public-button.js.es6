@@ -49,6 +49,23 @@ export default {
         other_keyword_tags = show_selected_tags;
       }
       ajax(`/tag_groups.json`).then(result => {
+        //console.log(result.tag_groups);
+        var myMap = new Map()
+        for(var q=0;q < result.tag_groups.length; q++ ){
+          myMap.set(result.tag_groups[q].name, result.tag_groups[q])
+        }
+        //console.log(myMap);
+        var order_of_topic_tags = ["Topics", "Educational Level", "Language", "MediaType", "ResourceType", "Audience", "Age Range", "Difficulty Level","Curricular", "Curriculum", "Interactivity Type","Reading Level","Text Complexity","Time Required","Source"]
+
+        var order_tag_groups = []
+        for(var y=0;y < myMap.size; y++ ){
+          if(myMap.get(order_of_topic_tags[y])){
+            order_tag_groups.push(myMap.get(order_of_topic_tags[y]))
+          }
+        }
+        //console.log(order_tag_groups);
+        //console.log("order_tag_groups");
+        result.tag_groups = order_tag_groups
         for(var k=0;k < result.tag_groups.length; k++ ){
           if(other_keyword_tags.length > 0 && other_keyword_tags.filter(x => !result.tag_groups[k].tag_names.includes(x)))
           {
